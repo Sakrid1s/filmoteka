@@ -1,87 +1,41 @@
 import axios from 'axios';
 
-export async function getTmdbTrendingMovies(inputValue, page) {
-  const url = 'https://api.themoviedb.org/3/trending/movie/week';
-  const params = {
-    query: `${inputValue}`,
-    page,
-    language: 'en-US',
-  };
-  const headers = {
-    accept: 'application/json',
-    Authorization:
-      'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1NzkyYzgwYjBjNTY2N2JiNDRkMTRlOTU5MWUwYWIzMiIsInN1YiI6IjY2MTk4YjAzNjljNzBmMDE3ZjU2ZjNiMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ntpN4XwkPBQA3gvLMUCHQS0bnwl9smaqvL12M-HES9o',
-  };
-  const res = await axios.get(url, { params, headers });
-  console.log(res.data);
-  return res.data;
+axios.defaults.baseURL = 'https://api.themoviedb.org/3/';
+
+const API_KEY =
+  'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1NzkyYzgwYjBjNTY2N2JiNDRkMTRlOTU5MWUwYWIzMiIsInN1YiI6IjY2MTk4YjAzNjljNzBmMDE3ZjU2ZjNiMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ntpN4XwkPBQA3gvLMUCHQS0bnwl9smaqvL12M-HES9o';
+
+const options = {
+  headers: {
+    Authorization: 'Baerer ' + API_KEY,
+  },
+};
+export async function getTrendingMovies() {
+  const url = 'trending/movie/week';
+  const res = await axios.get(url, options);
+  return res;
 }
 
-export async function getTmdbSearchMovie(inputValue, page) {
-  const url = 'https://api.themoviedb.org/3/search/movie';
-  const params = {
-    query: `${inputValue}`,
-    page,
-    language: 'en-US',
-    include_adult: 'false',
-  };
-  const headers = {
-    accept: 'application/json',
-    Authorization:
-      'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1NzkyYzgwYjBjNTY2N2JiNDRkMTRlOTU5MWUwYWIzMiIsInN1YiI6IjY2MTk4YjAzNjljNzBmMDE3ZjU2ZjNiMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ntpN4XwkPBQA3gvLMUCHQS0bnwl9smaqvL12M-HES9o',
-  };
-  const res = await axios.get(url, { params, headers });
-  console.log(res.data);
-  return res.data;
+export async function getSearchMovie(query) {
+  const url = `search/movie?query=${query}`;
+  const res = await axios.get(url, options);
+  return res;
 }
 
-export async function getTmdbMovieDetails(inputValue, page) {
-  const url = 'https://api.themoviedb.org/3/movie/movie_id';
-  const params = {
-    query: `${inputValue}`,
-    page,
-    language: 'en-US',
-  };
-  const headers = {
-    accept: 'application/json',
-    Authorization:
-      'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1NzkyYzgwYjBjNTY2N2JiNDRkMTRlOTU5MWUwYWIzMiIsInN1YiI6IjY2MTk4YjAzNjljNzBmMDE3ZjU2ZjNiMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ntpN4XwkPBQA3gvLMUCHQS0bnwl9smaqvL12M-HES9o',
-  };
-  const res = await axios.get(url, { params, headers });
-  console.log(res.data);
-  return res.data;
+export async function getMovieDetails(id) {
+  const url = `movie/${id}`;
+  const res = await axios.get(url, options);
+  return res;
 }
 
-export async function getTmdbMovieCredits(inputValue, page) {
-  const url = 'https://api.themoviedb.org/3/movie/movie_id/credits';
-  const params = {
-    query: `${inputValue}`,
-    page,
-    language: 'en-US',
-  };
-  const headers = {
-    accept: 'application/json',
-    Authorization:
-      'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1NzkyYzgwYjBjNTY2N2JiNDRkMTRlOTU5MWUwYWIzMiIsInN1YiI6IjY2MTk4YjAzNjljNzBmMDE3ZjU2ZjNiMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ntpN4XwkPBQA3gvLMUCHQS0bnwl9smaqvL12M-HES9o',
-  };
-  const res = await axios.get(url, { params, headers });
-  console.log(res.data);
-  return res.data;
+export async function getMovieCredits(id) {
+  const url = `movie/${id}/credits`;
+  const res = await axios.get(url, options);
+  return res;
 }
 
-export async function getTmdbMovieReviews(inputValue, page) {
-  const url = 'https://api.themoviedb.org/3/movie/movie_id/reviews';
-  const params = {
-    query: `${inputValue}`,
-    page,
-    language: 'en-US',
-  };
-  const headers = {
-    accept: 'application/json',
-    Authorization:
-      'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1NzkyYzgwYjBjNTY2N2JiNDRkMTRlOTU5MWUwYWIzMiIsInN1YiI6IjY2MTk4YjAzNjljNzBmMDE3ZjU2ZjNiMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ntpN4XwkPBQA3gvLMUCHQS0bnwl9smaqvL12M-HES9o',
-  };
-  const res = await axios.get(url, { params, headers });
-  console.log(res.data);
-  return res.data;
+export async function getMovieReviews(id) {
+  const url = `movie/${id}/reviews`;
+  const res = await axios.get(url, options);
+  return res;
 }
