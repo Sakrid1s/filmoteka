@@ -1,5 +1,4 @@
 import { NavLink, Route, Routes } from 'react-router-dom';
-import { getTmdbTrendingMovies } from './api/tmdb-api';
 import clsx from 'clsx';
 import css from './App.module.css';
 import Home from './pages/HomePage';
@@ -9,8 +8,6 @@ import NotFound from './pages/NotFoundPage';
 const buildLinkClass = ({ isActive }) => {
   return clsx(css.link, isActive && css.active);
 };
-const res = getTmdbTrendingMovies();
-console.log(res);
 function App() {
   return (
     <div>
