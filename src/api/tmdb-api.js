@@ -10,6 +10,7 @@ const options = {
     Authorization: 'Baerer ' + API_KEY,
   },
 };
+
 export async function getTrendingMovies() {
   const url = 'trending/movie/week';
   const res = await axios.get(url, options);
