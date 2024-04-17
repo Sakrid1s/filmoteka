@@ -1,9 +1,9 @@
 import { NavLink, Route, Routes } from 'react-router-dom';
 import clsx from 'clsx';
 import css from './App.module.css';
-import Home from './pages/HomePage';
-import Movies from './pages/MoviesPage';
-import NotFound from './pages/NotFoundPage';
+import HomePage from './pages/HomePage';
+import MoviesPage from './pages/MoviesPage';
+import NotFoundPage from './pages/NotFoundPage';
 
 const buildLinkClass = ({ isActive }) => {
   return clsx(css.link, isActive && css.active);
@@ -20,9 +20,9 @@ function App() {
         </NavLink>
       </nav>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/movies" element={<Movies />} />
-        <Route path="*" element={<NotFound />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/movies" element={<MoviesPage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </div>
   );

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { getTrendingMovies } from '../api/tmdb-api';
-import MovieList from '../components/movieList/movieList';
+import MovieList from '../components/movieList/MovieList';
 
 const Home = () => {
   const [trendingMovies, setTrendingMovies] = useState([]);
@@ -9,6 +9,7 @@ const Home = () => {
       try {
         const res = await getTrendingMovies();
         setTrendingMovies(res.data.results);
+        console.log(trendingMovies);
       } catch (error) {
         console.log(error.message);
       }

@@ -2,12 +2,10 @@ import axios from 'axios';
 
 axios.defaults.baseURL = 'https://api.themoviedb.org/3/';
 
-const API_KEY =
-  'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1NzkyYzgwYjBjNTY2N2JiNDRkMTRlOTU5MWUwYWIzMiIsInN1YiI6IjY2MTk4YjAzNjljNzBmMDE3ZjU2ZjNiMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ntpN4XwkPBQA3gvLMUCHQS0bnwl9smaqvL12M-HES9o';
-
 const options = {
   headers: {
-    Authorization: 'Baerer ' + API_KEY,
+    Authorization:
+      'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1NzkyYzgwYjBjNTY2N2JiNDRkMTRlOTU5MWUwYWIzMiIsInN1YiI6IjY2MTk4YjAzNjljNzBmMDE3ZjU2ZjNiMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ntpN4XwkPBQA3gvLMUCHQS0bnwl9smaqvL12M-HES9o',
   },
 };
 
