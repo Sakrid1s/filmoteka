@@ -15,7 +15,7 @@ export async function getTrendingMovies() {
   return res;
 }
 
-export async function getSearchMovie(query) {
+export async function getMovieByQuery(query) {
   const url = `search/movie?query=${query}`;
   const res = await axios.get(url, options);
   return res;
