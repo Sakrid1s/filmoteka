@@ -1,5 +1,5 @@
 const MovieList = () => {
-  return <div>TrendingMovieList</div>;
+  return <div>MovieList</div>;
 };
 
 export default MovieList;
