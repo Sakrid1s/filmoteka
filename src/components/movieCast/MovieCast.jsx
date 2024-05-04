@@ -5,10 +5,10 @@ import Loader from '../loader/Loader';
 import ErrorMesage from '../errorMessage/ErrorMessage';
 
 const MovieCast = () => {
-  const { movieId } = useParams();
   const [cast, setCast] = useState(null);
   const [loader, setLoader] = useState(false);
   const [error, setError] = useState(false);
+  const { movieId } = useParams();
 
   useEffect(() => {
     const fetchCast = async () => {
