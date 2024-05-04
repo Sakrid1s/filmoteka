@@ -32,11 +32,11 @@ const MovieReviews = () => {
       {loader && <Loader />}
       {error && <ErrorMessage />}
       <h2>Rewiews</h2>
-      {reviews ? (
+      {reviews && reviews.length > 0 ? (
         <ul>
           {reviews.map((review, index) => (
             <li key={index}>
-              <p>{review.author}</p>
+              <h3>{review.author}</h3>
               <p>{review.content}</p>
             </li>
           ))}
