@@ -15,12 +15,11 @@ function App() {
       <Header />
       <Suspense fallback={<Loader />}>
         <Routes>
-          <Route path="/" element={<div>Home page</div>} />
-          <Route path="/movies" element={<div>Movies page</div>} />
-          <Route path="/movies/:id" element={<div>Movie detail Page</div>}>
-            <Route path="cast" element={<MovieCast />} />
-            <Route path="reviews" element={<MovieReviews />} />
-          </Route>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/movies" element={<MoviesPage />} />
+          <Route path="/movies/:movieId" element={<MovieDetailsPage />} />
+          <Route path="/movies/:movieId/cast" element={<MovieCast />} />
+          <Route path="/movies/:movieId/reviews" element={<MovieReviews />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>
