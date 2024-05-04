@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import Header from './components/header/Header';
+import Navigation from './components/navigation/Navigation';
 import HomePage from './pages/HomePage';
 import MoviesPage from './pages/MoviesPage';
 import NotFoundPage from './pages/NotFoundPage';
@@ -12,7 +12,7 @@ import MovieReviews from './components/movieReviews/MovieReviews';
 function App() {
   return (
     <div>
-      <Header />
+      <Navigation />
       <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/" element={<HomePage />} />

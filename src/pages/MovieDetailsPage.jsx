@@ -1,65 +1,83 @@
-import { Link } from 'react-router-dom';
-import { useParams } from 'react-router-dom';
-// import { getMovieDetails } from '../api/tmdb-api';
-// import { useEffect, useState } from 'react';
-// import Loader from '../components/loader/Loader';
-// import ErrorMesage from '../components/errorMessage/ErrorMessage';
+import { useEffect, useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import { getMovieDetails } from '../api/tmdb-api';
+import Loader from '../components/loader/Loader';
+import ErrorMesage from '../components/errorMessage/ErrorMessage';
 
 const MovieDetailsPage = () => {
   const { movieId } = useParams();
-  console.log(movieId);
-  // const [movieDetails, setMovieDetails] = useState([]);
-  // const [loader, setLoader] = useState(false);
-  // const [error, setError] = useState(false);
-  // const location = useLocation();
+  const [movieDetails, setMovieDetails] = useState(null);
+  const [loader, setLoader] = useState(false);
+  const [error, setError] = useState(false);
 
-  // useEffect(() => {
-  //   async function fetchMovieDetails() {
-  //     try {
-  //       setLoader(true);
-  //       setError(false);
-  //       const res = await getMovieDetails(id);
-  //       setMovieDetails(res.data);
-  //     } catch (error) {
-  //       console.log(error.message);
-  //       setError(true);
-  //     } finally {
-  //       setLoader(false);
-  //     }
-  //   }
-  //   fetchMovieDetails();
-  // }, [id]);
+  useEffect(() => {
+    const fetchMovieDetails = async () => {
+      try {
+        setLoader(true);
+        setError(false);
+        const res = await getMovieDetails(movieId);
+        setMovieDetails(res.data);
+      } catch (error) {
+        setError(true);
+        console.log(error.message);
+      } finally {
+        setLoader(false);
+      }
+    };
+    fetchMovieDetails();
+  }, [movieId]);
 
-  // const {
-  //   title,
-  //   poster_path,
-  //   overview,
-  //   release_date,
-  //   vote_average,
-  //   budget,
-  //   genres,
-  // } = movieDetails;
+  if (!movieDetails) {
+    return <Loader />;
+  }
+
+  if (error) {
+    return <ErrorMesage />;
+  }
+
+  const { title, poster_path, overview, vote_average, genres } = movieDetails;
 
   return (
     <div>
-      <p>Movie Details page</p>
+      {loader && <Loader />}
+      {error && <ErrorMesage />}
 
-      <h3>Additional information</h3>
-      <p>Details for {movieId}</p>
-      <ul>
-        <li>
-          <Link to={`/movies/${movieId}/cast`}>
-            <p>Cast</p>
-          </Link>
-        </li>
-        <li>
-          <Link to={`/movies/${movieId}/reviews`}>
-            <p>Reviews</p>
-          </Link>
-        </li>
-      </ul>
-      {/* {loader && <Loader />}
-      {error && <ErrorMesage />} */}
+      {movieDetails ? (
+        <div>
+          <div>
+            <img
+              style={{ width: '300px' }}
+              src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
+              alt={title}
+            />
+          </div>
+          <div>
+            <h1>{title}</h1>
+            <p>User score: {vote_average}</p>
+            <h2>Overview</h2>
+            <p>{overview}</p>
+            <h2>Genres</h2>
+            <p>{genres.map(genre => genre.name).join(', ')}</p>
+          </div>
+        </div>
+      ) : (
+        <ErrorMesage />
+      )}
+      <div>
+        <h3>Additional information</h3>
+        <ul>
+          <li>
+            <Link to={`/movies/${movieId}/cast`}>
+              <p>Cast</p>
+            </Link>
+          </li>
+          <li>
+            <Link to={`/movies/${movieId}/reviews`}>
+              <p>Reviews</p>
+            </Link>
+          </li>
+        </ul>
+      </div>
     </div>
   );
 };
