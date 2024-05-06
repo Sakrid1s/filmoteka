@@ -9,32 +9,40 @@ const options = {
   },
 };
 
-export async function getTrendingMovies() {
+async function getMovies() {
   const url = 'trending/movie/week';
   const res = await axios.get(url, options);
   return res;
 }
 
-export async function getMovieByQuery(query) {
+async function getMovieByQuery(query) {
   const url = `search/movie?query=${query}`;
   const res = await axios.get(url, options);
   return res;
 }
 
-export async function getMovieDetails(id) {
+async function getMovieDetails(id) {
   const url = `movie/${id}`;
   const res = await axios.get(url, options);
   return res;
 }
 
-export async function getMovieCredits(id) {
+async function getMovieCredits(id) {
   const url = `movie/${id}/credits`;
   const res = await axios.get(url, options);
   return res;
 }
 
-export async function getMovieReviews(id) {
+async function getMovieReviews(id) {
   const url = `movie/${id}/reviews`;
   const res = await axios.get(url, options);
   return res;
 }
+
+export {
+  getMovies,
+  getMovieByQuery,
+  getMovieCredits,
+  getMovieDetails,
+  getMovieReviews,
+};

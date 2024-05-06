@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, Outlet, useParams } from 'react-router-dom';
 import { getMovieDetails } from '../api/tmdb-api';
 import Loader from '../components/loader/Loader';
 import ErrorMesage from '../components/errorMessage/ErrorMessage';
@@ -77,6 +77,7 @@ const MovieDetailsPage = () => {
             </Link>
           </li>
         </ul>
+        <Outlet />
       </div>
     </div>
   );

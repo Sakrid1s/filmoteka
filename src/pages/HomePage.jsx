@@ -1,26 +1,23 @@
 import { useEffect, useState } from 'react';
-import { getTrendingMovies } from '../api/tmdb-api';
+import { getMovies } from '../api/tmdb-api';
 import MovieList from '../components/movieList/MovieList';
 
 const HomePage = () => {
-  const [trendingMovies, setTrendingMovies] = useState([]);
+  const [movies, setMovies] = useState([]);
   useEffect(() => {
-    const fetchTrendingMovies = async () => {
+    const fetchMovies = async () => {
       try {
-        const res = await getTrendingMovies();
-        setTrendingMovies(res.data.results);
+        const res = await getMovies();
+        setMovies(res.data.results);
       } catch (error) {
         console.log(error.message);
       }
     };
-    fetchTrendingMovies();
+    fetchMovies();
   }, []);
   return (
     <div>
-      <p>Home page</p>
-      <section>
-        <MovieList trendingMovies={trendingMovies} />
-      </section>
+      <MovieList movies={movies} />
     </div>
   );
 };
