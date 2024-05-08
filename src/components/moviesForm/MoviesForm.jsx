@@ -5,6 +5,7 @@ const MoviesForm = ({ setSearchParams }) => {
     const formValue = form.elements.search.value;
 
     if (formValue.trim() === '') {
+      alert('Form field must be filled in!');
       form.reset();
       return;
     }
