@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
-import { getMovieByQuery } from '../api/tmdb-api';
-import Loader from '../components/loader/Loader';
-import ErrorMessage from '../components/errorMessage/ErrorMessage';
-import MoviesForm from '../components/moviesForm/MoviesForm';
+import { getMovieByQuery } from '../../api/tmdb-api';
+import Loader from '../../components/loader/Loader';
+import ErrorMessage from '../../components/errorMessage/ErrorMessage';
+import MoviesForm from '../../components/moviesForm/MoviesForm';
 import { Link, useSearchParams } from 'react-router-dom';
+// import css from './MoviesPage.module.css';
 
 const MoviesPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();

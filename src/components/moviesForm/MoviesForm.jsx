@@ -1,3 +1,5 @@
+import css from './MoviesForm.module.css';
+
 const MoviesForm = ({ setSearchParams }) => {
   const handleSubmit = event => {
     event.preventDefault();
@@ -17,13 +19,16 @@ const MoviesForm = ({ setSearchParams }) => {
     <div>
       <form onSubmit={handleSubmit}>
         <input
+          className={css.input}
           type="text"
           name="search"
           autoComplete="off"
           autoFocus
           placeholder="Search movie..."
         />
-        <button type="submit">Search</button>
+        <button type="submit" className={css.button}>
+          Search
+        </button>
       </form>
     </div>
   );

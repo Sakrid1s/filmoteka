@@ -1,11 +1,12 @@
 import { Route, Routes } from 'react-router-dom';
 import Navigation from './components/navigation/Navigation';
 import HomePage from './pages/HomePage';
-import MoviesPage from './pages/MoviesPage';
+import MoviesPage from './pages/moviesPage/MoviesPage';
 import NotFoundPage from './pages/NotFoundPage';
 import MovieDetailsPage from './pages/MovieDetailsPage';
 import MovieCast from './components/movieCast/MovieCast';
 import MovieReviews from './components/movieReviews/MovieReviews';
+import './App.css';
 
 function App() {
   return (
