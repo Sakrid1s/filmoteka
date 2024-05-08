@@ -8,6 +8,7 @@ const MoviesForm = ({ setSearchParams }) => {
       form.reset();
       return;
     }
+
     setSearchParams({ query: formValue });
     form.reset();
   };
