@@ -4,7 +4,7 @@ import './App.css';
 
 import Navigation from './components/navigation/Navigation';
 import HomePage from './pages/HomePage';
-import MovieDetailsPage from './pages/MovieDetailsPage';
+import MovieDetailsPage from './pages/movieDetailsPage/MovieDetailsPage';
 import Loader from './components/loader/Loader';
 
 const MoviesPage = lazy(() => import('./pages/moviesPage/MoviesPage'));
