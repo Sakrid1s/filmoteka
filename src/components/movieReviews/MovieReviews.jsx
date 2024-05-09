@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import Loader from '../loader/Loader';
 import ErrorMessage from '../errorMessage/ErrorMessage';
 import { getMovieReviews } from '../../api/tmdb-api';
+import css from './MovieReviews.module.css';
 
 const MovieReviews = () => {
   const [loader, setLoader] = useState(false);
