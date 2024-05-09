@@ -1,4 +1,4 @@
-.movieCastContainer {
+.container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
@@ -20,15 +20,20 @@
   border-radius: 5px;
   padding: 10px;
   text-align: center;
+  transition: transform 0.3s ease;
 }
 
-.movieCastItem img {
+.movieCastItem:hover {
+  transform: scale(1.05);
+}
+
+.movieCastItemImage {
   width: 100%;
   border-radius: 5px;
   margin-bottom: 10px;
 }
 
-.movieCastItem p {
+.movieCastItemText {
   margin: 0;
   color: #fff;
 }

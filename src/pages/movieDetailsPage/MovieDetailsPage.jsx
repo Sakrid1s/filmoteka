@@ -49,27 +49,40 @@ const MovieDetailsPage = () => {
       <div className={css.movieDetails}>
         <div>
           <img
+            className={css.movieDetailsImage}
             src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
             alt={title}
           />
         </div>
         <div className={css.movieDetailsInfo}>
-          <h1>{title}</h1>
-          <p>User score: {vote_average}</p>
-          <h2>Overview</h2>
-          <p>{overview}</p>
-          <h2>Genres</h2>
-          <p>{genres.map(genre => genre.name).join(', ')}</p>
+          <h1 className={css.movieDetailsInfoTitle}>{title}</h1>
+          <p className={css.movieDetailsInfoText}>User score: {vote_average}</p>
+          <h2 className={css.movieDetailsInfoSubtitle}>Overview</h2>
+          <p className={css.movieDetailsInfoText}>{overview}</p>
+          <h2 className={css.movieDetailsInfoSubtitle}>Genres</h2>
+          <p className={css.movieDetailsInfoText}>
+            {genres.map(genre => genre.name).join(', ')}
+          </p>
         </div>
       </div>
       <div className={css.additionalInfo}>
         <h3 className={css.additionalInfoTitle}>Additional information</h3>
         <ul className={css.additionalInfoUl}>
-          <li>
-            <Link to={`/movies/${movieId}/cast`}>Cast</Link>
+          <li className={css.additionalInfoItem}>
+            <Link
+              to={`/movies/${movieId}/cast`}
+              className={css.additionalInfoLink}
+            >
+              Cast
+            </Link>
           </li>
-          <li>
-            <Link to={`/movies/${movieId}/reviews`}>Reviews</Link>
+          <li className={css.additionalInfoItem}>
+            <Link
+              to={`/movies/${movieId}/reviews`}
+              className={css.additionalInfoLink}
+            >
+              Reviews
+            </Link>
           </li>
         </ul>
         <Outlet />

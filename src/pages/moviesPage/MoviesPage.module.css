@@ -27,19 +27,19 @@
   text-align: center;
 }
 
-.movieItem a {
+.movieItemLink {
   text-decoration: none;
   color: inherit;
 }
 
-.movieItem img {
+.movieItemImage {
   width: 100%;
   height: auto;
   border-radius: 8px;
   transition: transform 0.3s ease;
 }
 
-.movieItem img:hover {
+.movieItemImage:hover {
   transform: scale(1.05);
 }
 

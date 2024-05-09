@@ -29,7 +29,7 @@ const MovieCast = () => {
   }, [movieId]);
 
   return (
-    <div className={css.movieCastContainer}>
+    <div className={css.container}>
       {loader && <Loader />}
       {error && <ErrorMesage />}
       {cast && (
@@ -37,11 +37,14 @@ const MovieCast = () => {
           {cast.map((actor, index) => (
             <li key={index} className={css.movieCastItem}>
               <img
+                className={css.movieCastItemImage}
                 src={`https://image.tmdb.org/t/p/w500/${actor.profile_path}`}
                 alt={actor.name}
               />
-              <p>{actor.name}</p>
-              <p>Character: {actor.character}</p>
+              <p className={css.movieCastItemText}>{actor.name}</p>
+              <p className={css.movieCastItemText}>
+                Character: {actor.character}
+              </p>
             </li>
           ))}
         </ul>

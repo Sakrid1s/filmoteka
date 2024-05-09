@@ -53,8 +53,9 @@ const MoviesPage = () => {
         {searchMovie &&
           searchMovie.map(movie => (
             <li key={movie.id} className={css.movieItem}>
-              <Link to={`/movies/${movie.id}`}>
+              <Link to={`/movies/${movie.id}`} className={css.movieItemLink}>
                 <img
+                  className={css.movieItemImage}
                   src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
                   alt={movie.title}
                 />
