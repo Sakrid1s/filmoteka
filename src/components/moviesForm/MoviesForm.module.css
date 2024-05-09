@@ -1,11 +1,22 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .input {
   width: 300px;
-  height: 30px;
-  border-radius: 5px;
-  border: 1px solid black;
-  margin: 20px;
-  padding: 10px 5px;
-  font-size: 20px;
+  height: 40px;
+  border: none;
+  border-radius: 3px;
+  padding: 10px;
+  font-size: 18px;
+  background-color: rgba(0, 0, 0, 0.75);
+  color: white;
+  margin-right: 10px;
 }
 
 .input:focus {
@@ -13,11 +24,16 @@
 }
 
 .button {
-  height: 30px;
-  background-color: transparent;
-  font-size: 20px;
-  border-radius: 5px;
-  border: 1px solid black;
+  height: 40px;
+  background-color: #e50914;
+  font-size: 18px;
+  border: none;
+  border-radius: 3px;
+  color: white;
   cursor: pointer;
-  margin: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #ff0a16;
 }

@@ -1,11 +1,24 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .nav {
   display: flex;
-  gap: 4px;
+  gap: 16px;
+  list-style-type: none;
 }
 
 .link {
-  color: black;
+  color: #fff;
   text-decoration: none;
+  font-weight: bold;
+  font-size: 18px;
+  margin-right: 10px;
 }
 
 .link:hover {
@@ -13,5 +26,5 @@
 }
 
 .active {
-  color: orange;
+  color: #e50914;
 }

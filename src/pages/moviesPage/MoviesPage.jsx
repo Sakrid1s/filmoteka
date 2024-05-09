@@ -4,7 +4,7 @@ import Loader from '../../components/loader/Loader';
 import ErrorMessage from '../../components/errorMessage/ErrorMessage';
 import MoviesForm from '../../components/moviesForm/MoviesForm';
 import { Link, useSearchParams } from 'react-router-dom';
-// import css from './MoviesPage.module.css';
+import css from './MoviesPage.module.css';
 
 const MoviesPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -45,19 +45,24 @@ const MoviesPage = () => {
   }, []);
 
   return (
-    <div>
-      {loader && <Loader />}
-      {error && <ErrorMessage />}
+    <div className={css.container}>
+      {loader && <Loader className={css.loader} />}
+      {error && <ErrorMessage className={css.errorMessage} />}
       <MoviesForm setSearchParams={setSearchParams} />
-      {searchMovie && (
-        <ul>
-          {searchMovie.map(movie => (
-            <li key={movie.id}>
-              <Link to={`/movies/${movie.id}`}>{movie.title}</Link>
+      <ul className={css.moviesList}>
+        {searchMovie &&
+          searchMovie.map(movie => (
+            <li key={movie.id} className={css.movieItem}>
+              <Link to={`/movies/${movie.id}`}>
+                <img
+                  src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
+                  alt={movie.title}
+                />
+                <div className={css.movieTitle}>{movie.title}</div>
+              </Link>
             </li>
           ))}
-        </ul>
-      )}
+      </ul>
     </div>
   );
 };
