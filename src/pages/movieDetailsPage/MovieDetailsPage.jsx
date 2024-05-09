@@ -45,7 +45,7 @@ const MovieDetailsPage = () => {
     <div className={css.container}>
       {loader && <Loader />}
       {error && <ErrorMesage />}
-      <GoBackBtn to={backLinkHref}>Go back</GoBackBtn>
+      <GoBackBtn to={backLinkHref}>Go back to movies</GoBackBtn>
       <div className={css.movieDetails}>
         <div>
           <img

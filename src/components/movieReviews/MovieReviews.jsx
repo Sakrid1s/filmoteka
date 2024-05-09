@@ -29,7 +29,7 @@ const MovieReviews = () => {
   }, [movieId]);
 
   return (
-    <div>
+    <div className={css.container}>
       {loader && <Loader />}
       {error && <ErrorMessage />}
       <h2 className={css.movieRewiewsTitle}>Rewiews</h2>
