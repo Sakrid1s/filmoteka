@@ -46,9 +46,9 @@ const MoviesPage = () => {
 
   return (
     <div className={css.container}>
+      <MoviesForm setSearchParams={setSearchParams} />
       {loader && <Loader className={css.loader} />}
       {error && <ErrorMessage className={css.errorMessage} />}
-      <MoviesForm setSearchParams={setSearchParams} />
       <ul className={css.moviesList}>
         {searchMovie &&
           searchMovie.map(movie => (

@@ -1,0 +1,18 @@
+.movieRewiewsTitle {
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.reviewAuthor {
+  color: #fff;
+  margin-bottom: 5px;
+}
+
+.reviewContent {
+  color: #b6b6b6;
+  font-size: 14px;
+}
+
+.rewiewNotFound {
+  color: #fff;
+}
