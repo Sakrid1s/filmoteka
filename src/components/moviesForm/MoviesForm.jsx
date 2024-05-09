@@ -17,7 +17,7 @@ const MoviesForm = ({ setSearchParams }) => {
   };
   return (
     <div className={css.container}>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className={css.form}>
         <input
           className={css.input}
           type="text"
