@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
-import { Link, Outlet, useParams } from 'react-router-dom';
+import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
 import { getMovieDetails } from '../api/tmdb-api';
+import GoBackBtn from '../components/goBackBtn/GoBackBtn';
 import Loader from '../components/loader/Loader';
 import ErrorMesage from '../components/errorMessage/ErrorMessage';
 
@@ -9,6 +10,8 @@ const MovieDetailsPage = () => {
   const [movieDetails, setMovieDetails] = useState(null);
   const [loader, setLoader] = useState(false);
   const [error, setError] = useState(false);
+  const location = useLocation();
+  const backLinkHref = location.state ?? '/movies';
 
   useEffect(() => {
     const fetchMovieDetails = async () => {
@@ -41,7 +44,7 @@ const MovieDetailsPage = () => {
     <div>
       {loader && <Loader />}
       {error && <ErrorMesage />}
-
+      <GoBackBtn to={backLinkHref}>Go back</GoBackBtn>
       {movieDetails ? (
         <div>
           <div>

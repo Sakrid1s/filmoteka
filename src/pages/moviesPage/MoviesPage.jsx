@@ -13,7 +13,6 @@ const MoviesPage = () => {
   const [error, setError] = useState(false);
 
   const movieName = searchParams.get('query') ?? '';
-  console.log(searchMovie);
 
   useEffect(() => {
     if (movieName === '') return;
