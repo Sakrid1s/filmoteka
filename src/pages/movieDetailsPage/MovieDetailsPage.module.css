@@ -1,7 +1,7 @@
 .container {
-  max-width: 1200px;
+  max-width: 320px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -12,49 +12,49 @@
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: space-between;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .movieDetailsImage {
-  width: 300px;
-  margin-right: 20px;
+  width: calc(100% - 20px);
+  margin-bottom: 10px;
   border-radius: 5px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
 }
 
 .movieDetailsInfo {
   flex: 1;
-  max-width: calc(100% - 340px);
+  width: calc(100% - 20px);
 }
 
 .movieDetailsInfoTitle {
-  font-size: 36px;
+  font-size: 24px;
   margin-bottom: 10px;
   color: #fff;
 }
 
 .movieDetailsInfoText {
-  font-size: 18px;
-  margin-bottom: 15px;
+  font-size: 16px;
+  margin-bottom: 10px;
   color: #b6b6b6;
 }
 
 .movieDetailsInfoSubtitle {
-  font-size: 24px;
-  margin-top: 20px;
+  font-size: 20px;
+  margin-top: 10px;
   margin-bottom: 10px;
   color: #fff;
 }
 
 .additionalInfo {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .additionalInfoTitle {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 24px;
+  font-size: 20px;
   margin-bottom: 10px;
   color: #fff;
 }
@@ -76,10 +76,74 @@
 .additionalInfoLink {
   color: #fff;
   text-decoration: none;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .additionalInfoLink:hover {
   text-decoration: underline;
   color: #e50914;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 768px;
+    padding: 20px;
+  }
+
+  .movieDetails {
+    margin-top: 20px;
+  }
+
+  .movieDetailsImage {
+    width: 100%;
+    max-width: 300px;
+    margin-right: 20px;
+  }
+
+  .movieDetailsInfo {
+    max-width: calc(100% - 340px);
+  }
+
+  .movieDetailsInfoTitle {
+    font-size: 32px;
+  }
+
+  .movieDetailsInfoText {
+    margin-bottom: 15px;
+  }
+
+  .movieDetailsInfoSubtitle {
+    font-size: 24px;
+    margin-top: 20px;
+  }
+
+  .additionalInfo {
+    margin-top: 20px;
+  }
+
+  .additionalInfoTitle {
+    font-size: 24px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .container {
+    max-width: 1200px;
+  }
+
+  .movieDetailsImage {
+    width: 300px;
+  }
+
+  .movieDetailsInfoTitle {
+    font-size: 36px;
+  }
+
+  .movieDetailsInfoText {
+    font-size: 18px;
+  }
+
+  .additionalInfoLink {
+    font-size: 18px;
+  }
 }
