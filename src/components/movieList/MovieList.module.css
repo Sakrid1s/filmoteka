@@ -1,5 +1,5 @@
 .container {
-  max-width: 1200px;
+  max-width: 320px;
   margin: 0 auto;
   padding: 20px;
   display: flex;
@@ -36,4 +36,20 @@
 .link:hover {
   text-decoration: underline;
   color: #e50914;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .container {
+    max-width: 1200px;
+  }
+
+  .list {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
