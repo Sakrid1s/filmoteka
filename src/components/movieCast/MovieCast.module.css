@@ -1,7 +1,7 @@
 .container {
-  max-width: 1200px;
+  max-width: 320px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,8 +11,8 @@
   list-style: none;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
 }
 
 .movieCastItem {
@@ -30,10 +30,49 @@
 .movieCastItemImage {
   width: 100%;
   border-radius: 5px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .movieCastItemText {
   margin: 0;
   color: #fff;
+  font-size: 14px;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 768px;
+    padding: 20px;
+  }
+
+  .movieCastList {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .movieCastItem {
+    padding: 15px;
+  }
+
+  .movieCastItemImage {
+    margin-bottom: 10px;
+  }
+
+  .movieCastItemText {
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .container {
+    max-width: 1200px;
+  }
+
+  .movieCastList {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .movieCastItem {
+    padding: 10px;
+  }
 }
