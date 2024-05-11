@@ -1,7 +1,7 @@
 .container {
-  max-width: 1200px;
+  max-width: 320px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 10px;
 }
 
 .loader {
@@ -19,8 +19,8 @@
   list-style-type: none;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  grid-gap: 10px;
 }
 
 .movieItem {
@@ -44,8 +44,39 @@
 }
 
 .movieTitle {
-  margin-top: 10px;
-  font-size: 18px;
+  margin-top: 5px;
+  font-size: 14px;
   font-weight: bold;
   color: #fff;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 768px;
+    padding: 20px;
+  }
+
+  .moviesList {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-gap: 20px;
+  }
+
+  .movieTitle {
+    margin-top: 10px;
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .container {
+    max-width: 1200px;
+  }
+
+  .moviesList {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+
+  .movieTitle {
+    font-size: 18px;
+  }
 }
