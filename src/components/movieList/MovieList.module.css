@@ -18,13 +18,12 @@
   padding: 0;
   margin: 0;
   width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
 }
 
 .listItem {
-  margin-bottom: 20px;
   display: flex;
   justify-content: center;
 }
@@ -61,19 +60,8 @@
     font-size: 32px;
   }
 
-  .listItem {
-    width: calc(100% / 2 - 20px);
-    margin-right: 20px;
-  }
-
-  .link {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .linkImage {
-    margin-right: 0;
-    margin-bottom: 10px;
+  .list {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
@@ -86,8 +74,7 @@
     font-size: 36px;
   }
 
-  .listItem {
-    width: calc(100% / 5 - 20px);
-    margin-right: 20px;
+  .list {
+    grid-template-columns: repeat(5, 1fr);
   }
 }
